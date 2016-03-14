@@ -70,8 +70,13 @@ public class Account {
     }
 
     public boolean setPinNumber(String pinNumber) {
-        this.pinNumber = pinNumber;
-        return true;
+        if(pinNumber.length()==4){
+            this.pinNumber = pinNumber;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     

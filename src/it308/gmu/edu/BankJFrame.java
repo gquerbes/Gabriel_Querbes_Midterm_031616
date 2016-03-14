@@ -119,7 +119,7 @@ public class BankJFrame extends javax.swing.JFrame {
         pswdUpdateInfoPin = new javax.swing.JPasswordField();
         lblUpdateAccountNumber = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jEditorPane1 = new javax.swing.JEditorPane();
+        edtrUpdateError = new javax.swing.JEditorPane();
         addAccountPanel = new javax.swing.JPanel();
         managePanel = new javax.swing.JPanel();
         manageLoginPanel = new javax.swing.JPanel();
@@ -642,10 +642,6 @@ public class BankJFrame extends javax.swing.JFrame {
         accountInformationPanel.setLayout(accountInformationPanelLayout);
         accountInformationPanelLayout.setHorizontalGroup(
             accountInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountInformationPanelLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jLabel28)
-                .addGap(59, 59, 59))
             .addGroup(accountInformationPanelLayout.createSequentialGroup()
                 .addGroup(accountInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(accountInformationPanelLayout.createSequentialGroup()
@@ -660,17 +656,22 @@ public class BankJFrame extends javax.swing.JFrame {
                             .addComponent(lblUpdateAccountNumber)
                             .addComponent(cmbxUpdateAccountType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(accountInformationPanelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(btnUpdateSubmit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdateCancel))
-                    .addGroup(accountInformationPanelLayout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(pswdUpdateInfoPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(accountInformationPanelLayout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(chkUpdatePaperless)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, accountInformationPanelLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addGap(59, 59, 59))
+            .addGroup(accountInformationPanelLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(btnUpdateCancel)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdateSubmit)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         accountInformationPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel29, jLabel30, jLabel31, jLabel32});
@@ -700,14 +701,14 @@ public class BankJFrame extends javax.swing.JFrame {
                     .addComponent(pswdUpdateInfoPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(86, 86, 86)
                 .addGroup(accountInformationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateSubmit)
-                    .addComponent(btnUpdateCancel))
+                    .addComponent(btnUpdateCancel)
+                    .addComponent(btnUpdateSubmit))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         accountInformationPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {chkUpdatePaperless, cmbxUpdateAccountType, jLabel29, jLabel30, jLabel31, jLabel32, lblUpdateAccountNumber, pswdUpdateInfoPin});
 
-        jScrollPane1.setViewportView(jEditorPane1);
+        jScrollPane1.setViewportView(edtrUpdateError);
 
         javax.swing.GroupLayout updateAccountPanelLayout = new javax.swing.GroupLayout(updateAccountPanel);
         updateAccountPanel.setLayout(updateAccountPanelLayout);
@@ -1047,6 +1048,24 @@ public class BankJFrame extends javax.swing.JFrame {
 
     private void btnUpdateSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSubmitActionPerformed
         // TODO add your handling code here:
+        Customer aCustomer = findCustomer(txtUpdateAccountNumber.getText(),new String (pswdUpdatePin.getPassword()));
+        Account aAccount = aCustomer.getAccount();
+        Address aAddress = aCustomer.getAddress();
+        
+       String errorMessage = validateFields(aCustomer,txtUpdateFirstName.getText(),txtUpdateLastName.getText()
+                            ,lblUpdateSSN.getText(),txtUpdateStreetAddress.getText(),txtUpdateCity.getText()
+                            ,(String) spnrUpdateState.getValue(),txtUpdateZip.getText(),(String) cmbxUpdateAccountType.getSelectedItem()
+                            ,chkUpdatePaperless.isSelected(),new String(pswdUpdatePin.getPassword()));
+       
+       if(errorMessage.equals("")){
+           JOptionPane.showMessageDialog(null,"Account Update Successfully");
+           clearUpdateScreen();
+       }
+       else{
+           edtrUpdateError.setText("Fix Errors Before Continuing: \n"+errorMessage);
+           errorMessage = "";
+       }
+        
         
     }//GEN-LAST:event_btnUpdateSubmitActionPerformed
 
@@ -1069,9 +1088,77 @@ public class BankJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_manageAccountMenuItemActionPerformed
     
-     public boolean validateFields(){
-         String errorMessage ="";
+     public String validateFields(Customer aCustomer,String firstName,String lastName, String SSN, String streetAddress,
+                                   String city, String state, String zip, String accountType, boolean paperless, String pin){
+         
+        String errorMessage ="";
         boolean validInfo = true;
+        Address aAddress = aCustomer.getAddress();
+        Account aAccount = aCustomer.getAccount();
+        
+      //validate first name
+       if (!aCustomer.setFirstName(firstName)){
+           errorMessage += "\nInvalid First Name";
+           validInfo = false;
+       }
+       
+       
+       //validate last name
+       if (!aCustomer.setLastName(lastName)){
+           errorMessage += "\nInvalid Last Name";
+           validInfo = false;
+       }
+       
+       //validate SSN
+       if(!aCustomer.setSsn(SSN)){
+           errorMessage += "\nInvalid SSN"
+                   + "\n  Format xxx-xx-xxxx";
+           validInfo = false;
+           
+           
+       }
+        
+       //validate Streeet
+       if(!aAddress.setStreetAddress(streetAddress)){
+           errorMessage += "\n Invalid Street Address";
+           validInfo = false;
+       }
+       
+       //validate City
+       if(!aAddress.setCity(city)){
+           errorMessage += "\nInvalid City";
+           validInfo = false;
+       }
+       
+       //validate State
+       aAddress.setState(state);
+       
+       //validate Zip
+       if (!aAddress.setZip(zip)){
+           errorMessage += "\nInvalid Zip Code";
+           validInfo = false;
+       }
+       
+       //set Account type 
+       aAccount.setAccountType(accountType);
+       
+        //set paperless
+       aAccount.setPaperless(paperless);
+       
+       //set account pin
+      // char [] pin = pswdCreatePin.getPassword();
+     
+       if(!aAccount.setPinNumber(pin)){
+           errorMessage +="\nInvalid Pin";
+           validInfo = false;
+       }
+       
+    
+           return errorMessage;
+          
+       
+       
+       
      }
     
     private void btnCreateSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSubmitActionPerformed
@@ -1079,68 +1166,29 @@ public class BankJFrame extends javax.swing.JFrame {
         Customer aCustomer = new Customer();
         String errorMessage ="";
         boolean validInfo = true;
-        
+        //USE (String) spnCreateState.getValue())
        
-        
-        //validate first name
-       if (!aCustomer.setFirstName(txtCreateFirstName.getText())){
-           errorMessage += "\nInvalid First Name";
-           validInfo = false;
-       }
-       
-       
-       //validate last name
-       if (!aCustomer.setLastName(txtCreateLastName.getText())){
-           errorMessage += "\nInvalid Last Name";
-           validInfo = false;
-       }
-       
-       //validate SSN
-       if(!aCustomer.setSsn(txtCreateSSN.getText())){
-           errorMessage += "\nInvalid SSN"
-                   + "\n  Format xxx-xx-xxxx";
-           validInfo = false;
-       }
-      
-       //create address
+        //create address
        Address aAddress = new Address();
-       
-       
-       //validate Streeet
-       if(!aAddress.setStreetAddress(txtCreateStreetAddress.getText())){
-           errorMessage += "\n Invalid Street Address";
-           validInfo = false;
-       }
-       
-       //validate City
-       if(!aAddress.setCity(txtCreateCity.getText())){
-           errorMessage += "\nInvalid City";
-           validInfo = false;
-       }
-       
-       //validate State
-       aAddress.setState((String) spnCreateState.getValue());
-       
-       //validate Zip
-       if (!aAddress.setZip(txtCreateZip.getText())){
-           errorMessage += "\nInvalid Zip Code";
-           validInfo = false;
-       }
- 
        //set address for customer
        aCustomer.setAddress(aAddress);
-       
        //create Account
        Account aAccount = new Account();
-       
-       //set Account type 
-       aAccount.setAccountType((String) cmbxCreateAccountType.getSelectedItem());
-       
+       //set account for customer
+       aCustomer.setAccount(aAccount);
        //set Account number
-       
        txtCreateAccountNumber.setText(Integer.toString(aAccount.getAccountNumber()));
-     
-       //validate Starting balance
+        
+       
+       errorMessage = validateFields(aCustomer,txtCreateFirstName.getText(),txtCreateLastName.getText()
+                ,txtCreateSSN.getText(),txtCreateStreetAddress.getText()
+                ,txtCreateCity.getText(),(String) spnCreateState.getValue()
+                ,txtCreateZip.getText(),(String) cmbxCreateAccountType.getSelectedItem()
+                ,chkCreatePaperless.isSelected(),new String (pswdCreatePin.getPassword()) );
+        
+        
+        
+         //validate Starting balance
        if(txtCreateStartingBalance.getText().equals("")){
            errorMessage += "\nStarting balance cannot be blank";
            validInfo = false;
@@ -1150,28 +1198,14 @@ public class BankJFrame extends javax.swing.JFrame {
            validInfo = false;
        }
        
-       //set paperless
-       aAccount.setPaperless(chkCreatePaperless.isSelected());
-       
-       //set account pin
-       char [] pin = pswdCreatePin.getPassword();
-     
-       if(!aAccount.setPinNumber(new String(pin))){
-           errorMessage +="\nInvalid Pin";
-           validInfo = false;
-       }
-           
-       //validate agreed to terms
+       //Validate agreed to terms
        if(!chkCreateAgree.isSelected()){
            errorMessage += "\nYou must agree to the terms before continuing";
            validInfo = false;
        }
        
-       //set account for customer
-       aCustomer.setAccount(aAccount);
-       
-       //determine valid info and proces
-       if(validInfo){
+       //set customer if valid info
+       if(errorMessage.equals("")){
            customers.add(aCustomer);
            edtCreateError.setText("");
            JOptionPane.showMessageDialog(null,"Account Created Successfully!"
@@ -1185,6 +1219,94 @@ public class BankJFrame extends javax.swing.JFrame {
            edtCreateError.setText("Fix Errors Before Continuing: "+errorMessage);
            errorMessage = "";
        }
+       
+       
+//        //validate first name
+//       if (!aCustomer.setFirstName(txtCreateFirstName.getText())){
+//           errorMessage += "\nInvalid First Name";
+//           validInfo = false;
+//       }
+//       
+//       
+//       //validate last name
+//       if (!aCustomer.setLastName(txtCreateLastName.getText())){
+//           errorMessage += "\nInvalid Last Name";
+//           validInfo = false;
+//       }
+//       
+//       //validate SSN
+//       if(!aCustomer.setSsn(txtCreateSSN.getText())){
+//           errorMessage += "\nInvalid SSN"
+//                   + "\n  Format xxx-xx-xxxx";
+//           validInfo = false;
+//       }
+      
+       
+       
+       
+//       //validate Streeet
+//       if(!aAddress.setStreetAddress(txtCreateStreetAddress.getText())){
+//           errorMessage += "\n Invalid Street Address";
+//           validInfo = false;
+//       }
+//       
+//       //validate City
+//       if(!aAddress.setCity(txtCreateCity.getText())){
+//           errorMessage += "\nInvalid City";
+//           validInfo = false;
+//       }
+//       
+//       //validate State
+//       aAddress.setState((String) spnCreateState.getValue());
+//       
+//       //validate Zip
+//       if (!aAddress.setZip(txtCreateZip.getText())){
+//           errorMessage += "\nInvalid Zip Code";
+//           validInfo = false;
+//       }
+ 
+       
+       
+//       //set Account type 
+//       aAccount.setAccountType((String) cmbxCreateAccountType.getSelectedItem());
+       
+       
+       
+       
+     
+      
+       
+//       //set paperless
+//       aAccount.setPaperless(chkCreatePaperless.isSelected());
+//       
+//       //set account pin
+//       char [] pin = pswdCreatePin.getPassword();
+//     
+//       if(!aAccount.setPinNumber(new String(pin))){
+//           errorMessage +="\nInvalid Pin";
+//           validInfo = false;
+//       }
+           
+       //validate agreed to terms
+       
+       
+       
+       
+       //determine valid info and proces
+//       if(validInfo){
+//           customers.add(aCustomer);
+//           edtCreateError.setText("");
+//           JOptionPane.showMessageDialog(null,"Account Created Successfully!"
+//                   + "\nAccount Number: "+ aAccount.getAccountNumber()
+//                   +"\nPin Number: "+ aAccount.getPinNumber() );
+//           clearCreateScreen();
+//           
+//       }
+//       else{
+//           //show errors
+//           edtCreateError.setText("Fix Errors Before Continuing: "+errorMessage);
+//           errorMessage = "";
+//       }
        
     }//GEN-LAST:event_btnCreateSubmitActionPerformed
     
@@ -1206,7 +1328,7 @@ public class BankJFrame extends javax.swing.JFrame {
         
     }
     
-    public Customer validateAccount(String accountNumber, String pin){
+    public Customer findCustomer(String accountNumber, String pin){
         Customer aCustomer = null;
         
         Iterator <Customer> it =  customers.iterator();
@@ -1233,7 +1355,7 @@ public class BankJFrame extends javax.swing.JFrame {
 
     private void btnUpdateLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateLoginActionPerformed
         // TODO add your handling code here:
-        Customer aCustomer = validateAccount(txtUpdateAccountNumber.getText(), new String(pswdUpdatePin.getPassword()));
+        Customer aCustomer = findCustomer(txtUpdateAccountNumber.getText(), new String(pswdUpdatePin.getPassword()));
         //validate account
         if (aCustomer == null){
             JOptionPane.showMessageDialog(null,"This Account Number and Password Combination do not exist");
@@ -1330,8 +1452,8 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem createNewAccountMenuItem;
     private javax.swing.JPanel customerDetailPanel;
     private javax.swing.JEditorPane edtCreateError;
+    private javax.swing.JEditorPane edtrUpdateError;
     private javax.swing.JButton jButton6;
-    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JEditorPane jEditorPane2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
