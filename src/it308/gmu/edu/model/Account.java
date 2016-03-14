@@ -60,6 +60,10 @@ public class Account {
     public void setPaperless(boolean paperless) {
         this.paperless = paperless;
     }
+    
+    public boolean getPaperless(){
+        return paperless;
+    }
 
     public String getPinNumber() {
         return pinNumber;
