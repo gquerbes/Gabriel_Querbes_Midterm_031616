@@ -12,21 +12,23 @@ package it308.gmu.edu.model;
 public class Account {
     private int accountNumber;
     private double balance;
-    private char accountType; //"C" : Checking , "S" : Savings, "I" : Investment 
+    private String accountType;
     private boolean paperless;
     private String pinNumber;
     
     private static int lastAccountNumber = 100;
 
     public Account(){
-        this.accountNumber = lastAccountNumber;
         lastAccountNumber++;
+        this.accountNumber = lastAccountNumber;
+       
     }
     
     public int getAccountNumber() {
         return accountNumber;
     }
 
+    
 
     public double getBalance() {
         return balance;
@@ -43,17 +45,12 @@ public class Account {
         
     }
 
-    public char getAccountType() {
+    public String getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(char accountType) {
-        if(accountType == 'C' || accountType == 'S' || accountType == 'I'){
-            this.accountType = accountType;
-        }
-        else{ 
-            this.accountType = 'X';
-        }
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 
     public boolean isPaperless() {
@@ -68,10 +65,15 @@ public class Account {
         return pinNumber;
     }
 
-    public void setPinNumber(String pinNumber) {
+    public boolean setPinNumber(String pinNumber) {
         this.pinNumber = pinNumber;
+        return true;
     }
     
+    
+    public static int getLastAccountNumber(){
+        return lastAccountNumber;
+    }
     
     //special purpose methods
     
@@ -95,6 +97,8 @@ public class Account {
             return false;
         }
     }
+    
+    
     
     
 }

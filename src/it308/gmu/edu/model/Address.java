@@ -24,16 +24,18 @@ public class Address {
         return streetAddress;
     }
 
-    public void setStreetAddress(String streetAddress) {
+    public boolean setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
+        return true;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public boolean setCity(String city) {
         this.city = city;
+        return true;
     }
 
     public String getState() {
@@ -48,8 +50,9 @@ public class Address {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public boolean setZip(String zip) {
         this.zip = zip;
+        return true;
     }
     
     
