@@ -495,19 +495,19 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="updateLoginPanel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="updateCustomerInfoPanel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="accountInformationPanel" max="32767" attributes="0"/>
+                                  <Component id="accountInformationPanel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -555,7 +555,7 @@
                                       <Component id="pswdUpdatePin" min="-2" pref="147" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -593,14 +593,8 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateAccountNumber">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField10"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JPasswordField" name="pswdUpdatePin">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel27">
                       <Properties>
@@ -750,24 +744,12 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateFirstName">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField11"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateLastName">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField12"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateStreetAddress">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField14"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateCity">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField15"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JSpinner" name="spnrUpdateState">
                       <Properties>
@@ -789,13 +771,10 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtUpdateZip">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField16"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUpdateSSN">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel45"/>
+                        <Property name="text" type="java.lang.String" value="_______"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -833,7 +812,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                           </Group>
@@ -943,9 +922,6 @@
                     <Component class="javax.swing.JCheckBox" name="chkUpdatePaperless">
                     </Component>
                     <Component class="javax.swing.JPasswordField" name="pswdUpdateInfoPin">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jPasswordField3"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblUpdateAccountNumber">
                       <Properties>
@@ -979,7 +955,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="1015" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="1000" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1001,19 +977,19 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Component id="manageLoginPanel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="manageTransactionPanel" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="manageTransactionPanel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="52" max="32767" attributes="0"/>
                                   <Component id="manageAccountBalancePanel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1027,8 +1003,8 @@
                               <Component id="manageAccountBalancePanel" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="94" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="114" max="-2" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1039,6 +1015,13 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnManageCancel" min="-2" pref="108" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="btnManageLogin" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -1048,17 +1031,17 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jLabel34" pref="119" max="32767" attributes="0"/>
+                                          <Component id="jLabel34" max="32767" attributes="0"/>
                                           <Component id="jLabel35" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField18" linkSize="20" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <Component id="jPasswordField4" linkSize="20" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtManageAccountNumber" linkSize="20" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="txtManageAccountPin" linkSize="20" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1070,12 +1053,17 @@
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel34" linkSize="19" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jTextField18" linkSize="19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManageAccountNumber" linkSize="19" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel35" linkSize="19" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="jPasswordField4" linkSize="19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManageAccountPin" linkSize="19" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnManageLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnManageCancel" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -1101,15 +1089,26 @@
                         <Property name="text" type="java.lang.String" value="Account Pin"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField18">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField18"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="txtManageAccountNumber">
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="jPasswordField4">
+                    <Component class="javax.swing.JPasswordField" name="txtManageAccountPin">
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnManageLogin">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jPasswordField4"/>
+                        <Property name="text" type="java.lang.String" value="Login"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageLoginActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnManageCancel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="LOG OUT"/>
+                        <Property name="toolTipText" type="java.lang.String" value=""/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageCancelActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1123,30 +1122,27 @@
                               <Component id="jLabel36" min="-2" pref="146" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel37" alignment="0" min="-2" pref="127" max="-2" attributes="0"/>
-                                          <Component id="jLabel38" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel37" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="rdbtnManageDeposit" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jTextField19" min="-2" pref="127" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="rdbtnManageWithdraw" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel38" min="-2" pref="111" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="txtManageAmount" min="-2" pref="127" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="btnManageSubmit" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="70" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1158,17 +1154,17 @@
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel37" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdbtnManageDeposit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rdbtnManageWithdraw" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel38" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="jTextField19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManageAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="123" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="btnManageSubmit" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1192,7 +1188,7 @@
                         <Property name="text" type="java.lang.String" value="Amount"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                    <Component class="javax.swing.JRadioButton" name="rdbtnManageDeposit">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
@@ -1200,10 +1196,10 @@
                         <Property name="text" type="java.lang.String" value="Deposit"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdbtnManageDepositActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                    <Component class="javax.swing.JRadioButton" name="rdbtnManageWithdraw">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
@@ -1211,15 +1207,15 @@
                         <Property name="text" type="java.lang.String" value="Withdraw"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField19">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField19"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="txtManageAmount">
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton6">
+                    <Component class="javax.swing.JButton" name="btnManageSubmit">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Submit"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManageSubmitActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1237,11 +1233,11 @@
                                           <Component id="jLabel42" linkSize="18" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel40" linkSize="18" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="46" max="32767" attributes="0"/>
+                                      <EmptySpace min="46" pref="71" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField20" linkSize="21" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="jTextField21" linkSize="21" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabel43" linkSize="21" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblManageBalance" linkSize="22" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <Component id="lblManageAccountNumber" linkSize="22" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblManageAccountType" linkSize="22" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -1262,19 +1258,19 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel40" linkSize="17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jTextField20" linkSize="17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblManageAccountNumber" linkSize="17" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel41" linkSize="17" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="jTextField21" linkSize="17" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblManageAccountType" linkSize="17" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel42" linkSize="17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" linkSize="17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblManageBalance" linkSize="17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="165" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1300,22 +1296,22 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel42">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Current Balance"/>
+                        <Property name="text" type="java.lang.String" value="Balance"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField20">
+                    <Component class="javax.swing.JLabel" name="lblManageBalance">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField20"/>
+                        <Property name="text" type="java.lang.String" value="_______"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField21">
+                    <Component class="javax.swing.JLabel" name="lblManageAccountNumber">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField21"/>
+                        <Property name="text" type="java.lang.String" value="_______"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel43">
+                    <Component class="javax.swing.JLabel" name="lblManageAccountType">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel43"/>
+                        <Property name="text" type="java.lang.String" value="_______"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1327,7 +1323,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JEditorPane" name="jEditorPane2">
+                    <Component class="javax.swing.JEditorPane" name="edtrManageError">
                     </Component>
                   </SubComponents>
                 </Container>

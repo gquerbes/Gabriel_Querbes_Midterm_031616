@@ -106,6 +106,11 @@ public class Account {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Account{" + "accountNumber=" + accountNumber + ", balance=" + balance + ", accountType=" + accountType + ", paperless=" + paperless + ", pinNumber=" + pinNumber + '}';
+    }
     
     
     

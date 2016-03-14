@@ -54,6 +54,11 @@ public class Address {
         this.zip = zip;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" + "streetAddress=" + streetAddress + ", city=" + city + ", state=" + state + ", zip=" + zip + '}';
+    }
     
     
     
