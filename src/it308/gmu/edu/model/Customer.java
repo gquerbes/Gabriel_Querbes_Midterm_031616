@@ -5,6 +5,8 @@
  */
 package it308.gmu.edu.model;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author gabrielquerbes
@@ -14,7 +16,7 @@ public class Customer {
     private String lastName;
     private String ssn;
     
-    private Account account; //allow multiple entries
+    private LinkedList <Account> account = new LinkedList<>(); //allow multiple entries
     private Address address;
 
     
@@ -68,11 +70,11 @@ public class Customer {
     }
 
     public Account getAccount() {
-        return account;
+        return account.getFirst();
     }
 
     public void setAccount(Account account) {
-        this.account = account;
+        this.account.add(account);
     }
 
     public Address getAddress() {

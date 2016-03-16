@@ -9,6 +9,9 @@ import it308.gmu.edu.model.Account;
 import it308.gmu.edu.model.Address;
 import it308.gmu.edu.model.Customer;
 import java.awt.CardLayout;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -148,6 +151,23 @@ public class BankJFrame extends javax.swing.JFrame {
         lblManageAccountType = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         edtrManageError = new javax.swing.JEditorPane();
+        balancePanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        lblBalanceAccountNumber = new javax.swing.JLabel();
+        lblBalanceAccountType = new javax.swing.JLabel();
+        lblBalanceBalance = new javax.swing.JLabel();
+        manageLoginPanel1 = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        txtBalanceAccountNumber = new javax.swing.JTextField();
+        txtBalanceAccountPin = new javax.swing.JPasswordField();
+        btnBalanceLogin = new javax.swing.JButton();
+        btnBalanceCancel = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -721,7 +741,7 @@ public class BankJFrame extends javax.swing.JFrame {
                     .addComponent(updateLoginPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(accountInformationPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Update Account", updateAccountPanel);
@@ -730,11 +750,11 @@ public class BankJFrame extends javax.swing.JFrame {
         addAccountPanel.setLayout(addAccountPanelLayout);
         addAccountPanelLayout.setHorizontalGroup(
             addAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1073, Short.MAX_VALUE)
         );
         addAccountPanelLayout.setVerticalGroup(
             addAccountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 596, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Add an Acount", addAccountPanel);
@@ -942,7 +962,7 @@ public class BankJFrame extends javax.swing.JFrame {
                 .addGroup(manageAccountBalancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
                     .addComponent(lblManageBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         manageAccountBalancePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel40, jLabel41, jLabel42, lblManageAccountNumber, lblManageAccountType, lblManageBalance});
@@ -961,7 +981,7 @@ public class BankJFrame extends javax.swing.JFrame {
                         .addComponent(manageLoginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addComponent(manageTransactionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                         .addComponent(manageAccountBalancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
         );
@@ -970,15 +990,169 @@ public class BankJFrame extends javax.swing.JFrame {
             .addGroup(managePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(managePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageLoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(managePanelLayout.createSequentialGroup()
+                        .addComponent(manageLoginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(229, 229, 229))
                     .addComponent(manageTransactionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageAccountBalancePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Account", managePanel);
+
+        jLabel45.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel45.setText("Balance Information");
+
+        jLabel43.setText("Account Number");
+
+        jLabel49.setText("Account Balance");
+
+        jLabel50.setText("Account Type ");
+
+        lblBalanceAccountNumber.setText("_______");
+
+        lblBalanceAccountType.setText("_______");
+
+        lblBalanceBalance.setText("_______");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jLabel45))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel50)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel43))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblBalanceAccountType)
+                            .addComponent(lblBalanceAccountNumber)
+                            .addComponent(lblBalanceBalance, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(168, Short.MAX_VALUE))
+        );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel43, jLabel49, jLabel50, lblBalanceAccountNumber, lblBalanceAccountType, lblBalanceBalance});
+
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel45)
+                .addGap(59, 59, 59)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBalanceAccountNumber))
+                .addGap(45, 45, 45)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(lblBalanceAccountType))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49)
+                    .addComponent(lblBalanceBalance))
+                .addContainerGap(142, Short.MAX_VALUE))
+        );
+
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel43, jLabel49, jLabel50, lblBalanceAccountNumber, lblBalanceAccountType, lblBalanceBalance});
+
+        jLabel46.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel46.setText("Login");
+
+        jLabel47.setText("Account Number");
+
+        jLabel48.setText("Account Pin");
+
+        btnBalanceLogin.setText("Login");
+        btnBalanceLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBalanceLoginActionPerformed(evt);
+            }
+        });
+
+        btnBalanceCancel.setText("LOG OUT");
+        btnBalanceCancel.setToolTipText("");
+        btnBalanceCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBalanceCancelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageLoginPanel1Layout = new javax.swing.GroupLayout(manageLoginPanel1);
+        manageLoginPanel1.setLayout(manageLoginPanel1Layout);
+        manageLoginPanel1Layout.setHorizontalGroup(
+            manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageLoginPanel1Layout.createSequentialGroup()
+                .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageLoginPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(btnBalanceCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBalanceLogin))
+                    .addGroup(manageLoginPanel1Layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel46))
+                    .addGroup(manageLoginPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtBalanceAccountNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(txtBalanceAccountPin))))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        manageLoginPanel1Layout.setVerticalGroup(
+            manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageLoginPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel46)
+                .addGap(33, 33, 33)
+                .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBalanceAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBalanceAccountPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(manageLoginPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBalanceCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBalanceLogin))
+                .addContainerGap(182, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout balancePanelLayout = new javax.swing.GroupLayout(balancePanel);
+        balancePanel.setLayout(balancePanelLayout);
+        balancePanelLayout.setHorizontalGroup(
+            balancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(balancePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(manageLoginPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+        balancePanelLayout.setVerticalGroup(
+            balancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(balancePanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(balancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageLoginPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Check Balance", balancePanel);
 
         javax.swing.GroupLayout managementPanelLayout = new javax.swing.GroupLayout(managementPanel);
         managementPanel.setLayout(managementPanelLayout);
@@ -1073,6 +1247,7 @@ public class BankJFrame extends javax.swing.JFrame {
        if(errorMessage.equals("")){
            JOptionPane.showMessageDialog(null,"Account Update Successfully");
            clearUpdateScreen();
+           printInformation();
        }
        else{
            edtrUpdateError.setText("Fix Errors Before Continuing: \n"+errorMessage);
@@ -1228,6 +1403,7 @@ public class BankJFrame extends javax.swing.JFrame {
                    + "\nAccount Number: "+ aAccount.getAccountNumber()
                    +"\nPin Number: "+ aAccount.getPinNumber() );
            clearCreateScreen();
+           printInformation();
            
        }
        else{
@@ -1449,12 +1625,22 @@ public class BankJFrame extends javax.swing.JFrame {
         txtManageAmount.setText("");
         edtrManageError.setText(errorMessage);
         errorMessage = "";
+        
+        printInformation();
     }//GEN-LAST:event_btnManageSubmitActionPerformed
 
     private void btnManageCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCancelActionPerformed
         // TODO add your handling code here:
         clearManageScreen();
     }//GEN-LAST:event_btnManageCancelActionPerformed
+
+    private void btnBalanceLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBalanceLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBalanceLoginActionPerformed
+
+    private void btnBalanceCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBalanceCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBalanceCancelActionPerformed
 
     public void clearManageScreen(){
         txtManageAccountNumber.setText("");
@@ -1481,6 +1667,24 @@ public class BankJFrame extends javax.swing.JFrame {
             chkUpdatePaperless.setSelected(false);
             pswdUpdatePin.setText("");
             pswdUpdateInfoPin.setText("");
+    }
+    
+    public void printInformation(){
+        try{
+            PrintWriter pw = new PrintWriter(new FileOutputStream("CustomerRecords.txt"));
+            Iterator it = customers.iterator();
+            
+            if(it.hasNext()){
+               pw.write(it.next().toString()+"\n");
+            }
+            
+            pw.close();
+            System.out.println("File successfully created!");
+        }
+
+        catch (FileNotFoundException e){
+            System.out.println("The file could not be created in the program folder. \n Please check permissions");
+        }
     }
     /**
      * @param args the command line arguments
@@ -1521,6 +1725,9 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel accountDetailPanel;
     private javax.swing.JPanel accountInformationPanel;
     private javax.swing.JPanel addAccountPanel;
+    private javax.swing.JPanel balancePanel;
+    private javax.swing.JButton btnBalanceCancel;
+    private javax.swing.JButton btnBalanceLogin;
     private javax.swing.JButton btnCreateCancel;
     private javax.swing.JButton btnCreateSubmit;
     private javax.swing.JButton btnManageCancel;
@@ -1578,8 +1785,15 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1587,11 +1801,15 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblBalanceAccountNumber;
+    private javax.swing.JLabel lblBalanceAccountType;
+    private javax.swing.JLabel lblBalanceBalance;
     private javax.swing.JLabel lblManageAccountNumber;
     private javax.swing.JLabel lblManageAccountType;
     private javax.swing.JLabel lblManageBalance;
@@ -1600,6 +1818,7 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel manageAccountBalancePanel;
     private javax.swing.JMenuItem manageAccountMenuItem;
     private javax.swing.JPanel manageLoginPanel;
+    private javax.swing.JPanel manageLoginPanel1;
     private javax.swing.JPanel managePanel;
     private javax.swing.JPanel manageTransactionPanel;
     private javax.swing.JPanel managementPanel;
@@ -1610,6 +1829,8 @@ public class BankJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbtnManageWithdraw;
     private javax.swing.JSpinner spnCreateState;
     private javax.swing.JSpinner spnrUpdateState;
+    private javax.swing.JTextField txtBalanceAccountNumber;
+    private javax.swing.JPasswordField txtBalanceAccountPin;
     private javax.swing.JTextField txtCreateAccountNumber;
     private javax.swing.JTextField txtCreateCity;
     private javax.swing.JTextField txtCreateFirstName;

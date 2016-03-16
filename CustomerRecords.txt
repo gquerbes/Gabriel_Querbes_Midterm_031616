@@ -1,0 +1,1 @@
+Customer{firstName=safsa, lastName=sadfas, ssn=222-22-2222, account=Account{accountNumber=101, balance=100.0, accountType=Checking, paperless=true, pinNumber=1011}, address=Address{streetAddress=323423, city=fasdfa, state=SC, zip=342342}}
