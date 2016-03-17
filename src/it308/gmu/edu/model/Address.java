@@ -25,8 +25,13 @@ public class Address {
     }
 
     public boolean setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-        return true;
+        if(streetAddress.length()>1){
+            this.streetAddress = streetAddress;
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public String getCity() {
@@ -34,8 +39,13 @@ public class Address {
     }
 
     public boolean setCity(String city) {
-        this.city = city;
-        return true;
+        if(city.length()>1){
+          this.city = city;
+          return true;  
+        }
+        else{
+            return false;
+        }
     }
 
     public String getState() {
@@ -51,8 +61,13 @@ public class Address {
     }
 
     public boolean setZip(String zip) {
-        this.zip = zip;
-        return true;
+        if(zip.length()==5){
+           this.zip = zip;
+           return true;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
