@@ -1,1 +1,1 @@
-Customer{firstName=dasf, lastName=saff, ssn=222-22-2222, account=[Account{accountNumber=102, balance=1200.0, accountType=Checking, paperless=true, pinNumber=1000}, Account{accountNumber=105, balance=1.0, accountType=Checking, paperless=false, pinNumber=null}], address=Address{streetAddress=dsfasf, city=ewr, state=SC, zip=22012}}
+Customer{firstName=ads, lastName=fa, ssn=111-11-1111, account=[Account{accountNumber=105, balance=22.0, accountType=Checking, paperless=true, pinNumber=dsfs}], address=Address{streetAddress=fdsaf, city=fsaf, state=SC, zip=11111}}
